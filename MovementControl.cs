@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,8 +7,11 @@ public class MovementControl : MonoBehaviour
     [SerializeField]
     private float Speed = 0.5f;
 
-    private Transform thisTransform;
+    [SerializeField]
+    private GameObject sparks;
 
+    private Transform thisTransform;
+    private int count;
     private Rigidbody rb;
 
     // Start is called before the first frame update
@@ -37,6 +40,8 @@ public class MovementControl : MonoBehaviour
         if (other.gameObject.CompareTag("Pick Up"))
         {
             other.gameObject.SetActive(false);
+            count = count + 1;
+            //SparksEffect.SetActive(true);
         }
     }
 
