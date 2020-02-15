@@ -10,6 +10,9 @@ public class MovementControl : MonoBehaviour
     [SerializeField]
     private GameObject sparks;
 
+    [SerializeField]
+    private GameObject text;
+
     private Transform thisTransform;
     private int count;
     private Rigidbody rb;
@@ -41,7 +44,11 @@ public class MovementControl : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             count = count + 1;
-            //SparksEffect.SetActive(true);
+            if (count == 3)
+            {
+                sparks.SetActive(true);
+                text.SetActive(true);
+            }
         }
     }
 
